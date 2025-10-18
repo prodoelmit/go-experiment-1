@@ -1,0 +1,23 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_binary(
+    name = "main",
+    embed = [":main_lib"],
+    visibility = ["//visibility:public"],
+    #deps = ["//fortune"],
+)
+
+go_library(
+    name = "main_lib",
+    srcs = [
+        "apiServer.go",
+        "helloService.go",
+        "main.go",
+    ],
+    importpath = "github.com/prodoelmit/go-experiment-1/core/main",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//proto:hello",
+        "@org_golang_google_grpc//:grpc",
+    ],
+)

@@ -1,0 +1,6 @@
+load("@gazelle//:def.bzl", "gazelle")
+
+# gazelle:go_grpc_compilers @io_bazel_rules_go//proto:go_grpc
+gazelle(
+    name = "gazelle",
+)
